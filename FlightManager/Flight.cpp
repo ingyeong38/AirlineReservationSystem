@@ -25,7 +25,7 @@ void Flight::printDetail() {
 	cout << "==============================" << endl;
 	cout << " 선택하신 항공편 정보" << endl;
 	cout << " 편명: " << flightCode << endl;
-	cout << " 구간: " << departure << "  →  " << departure << endl;
+	cout << " 구간: " << departure << "  →  " << arrival << endl;
 	cout << " 정보: " << getFlightClass() << endl;
 	cout << " 기본 요금: " << basePrice << "원" << endl;
 	cout << "==============================" << endl;

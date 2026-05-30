@@ -11,5 +11,6 @@ public:
 	CharterFlight(string flightCode, string departure, string arrival, int distance, int fixedPrice);
 	int calculateFare();
 	string getFlightClass();
+	void showFareDetail(double multiplier);
 };
 #endif // !CHARTERFLIGHT_H

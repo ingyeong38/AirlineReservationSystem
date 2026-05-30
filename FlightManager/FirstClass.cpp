@@ -4,7 +4,7 @@
 using namespace std;
 
 FirstClass::FirstClass(string seatNumber)
-	: Seat(seatNumber, 4.0) { }
+	: Seat(seatNumber, 4.0){ }
 
 string FirstClass::getClassName() {
 	return "[FirstClass ÁÂ¼®]\n";

@@ -13,5 +13,6 @@ public:
 	InternationalFlight(string flightCode, string departure, string arrival, int distance, int basePrice, int fuelSurcharge, int airportTax);
 	int calculateFare();
 	string getFlightClass();
+	void showFareDetail(double multiplier);
 };
 #endif // !INTERNATIONALFLIGHT_H

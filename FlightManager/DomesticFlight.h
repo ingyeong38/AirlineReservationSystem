@@ -10,5 +10,6 @@ public:
 	DomesticFlight(string flightCode, string departure, string arrival, int distance, int basePrice);
 	int calculateFare();
 	string getFlightClass();
+	void showFareDetail(double multiplier);
 };
 #endif // !DOMESTICFLIGHT_H

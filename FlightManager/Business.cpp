@@ -4,7 +4,7 @@
 using namespace std;
 
 Business::Business(string seatNumber) 
-	: Seat(seatNumber, 2.5) { }
+	: Seat(seatNumber, 2.5){ }
 
 string Business::getClassName() {
 	return "[Business ÁÂ¼®]\n";

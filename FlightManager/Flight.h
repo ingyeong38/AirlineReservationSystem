@@ -18,6 +18,7 @@ public:
 	int getBasePrice();			// 기본요금 반환	// 기존 UML에서 추가함
 	virtual int calculateFare()=0;// 요금 계산
 	virtual string getFlightClass() = 0;	// 비행기 정보 출력
+	virtual void showFareDetail(double multiplier) = 0; // 최종 계산 요금 출력
 	void printSummary();			// 항공편 정보 출력
 	void printDetail();
 };
