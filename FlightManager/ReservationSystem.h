@@ -13,7 +13,6 @@ using namespace std;
 class ReservationSystem {
 private:
 	Flight* flights[10];	// 항공편 10개 저장
-	Seat* seats[10];		// 좌석 10개 저장
 	Passenger* passenger;	// 승객 정보
 	int flightCount;		// 등록된 항공편 수
 	int seatCount;			// 등록된 좌석 수

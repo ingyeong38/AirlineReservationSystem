@@ -8,6 +8,6 @@ class Business : public Seat{
 public:
 	Business(string seatNumber);
 	string getClassName();
-	static void getSeatMap(Seat* seats[]);
+	static void getSeatMap();
 };
 #endif // !BUSINESS_H

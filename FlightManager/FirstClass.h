@@ -8,6 +8,6 @@ class FirstClass : public Seat {
 public:
 	FirstClass(string seatNumber);
 	string getClassName();
-	static void getSeatMap(Seat *seats[]);
+	static void getSeatMap();
 };
 #endif // !FIRSTCLASS_H

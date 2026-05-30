@@ -10,8 +10,8 @@ string FirstClass::getClassName() {
 	return "[FirstClass ÁÂ¼®]\n";
 }
 
-void FirstClass::getSeatMap(Seat* seats[]) {
-	cout << "\t" << "A\tB\n";
+void FirstClass::getSeatMap() {
+	cout << "\n\t" << "A\tB\n";
 	for (int i = 1; i < 5; i++) {
 		cout << i << "      ";
 		for (int j = 0; j < 2; j++) {
