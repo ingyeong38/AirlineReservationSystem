@@ -10,7 +10,10 @@ private:
 	double priceMultiplier;	// 가격 배수(1.0/2.5/4.0)
 public:
 	Seat(string seatNumber, double priceMultiplier);
-	string getSeatNumber();	// 좌석 번호 반환
-	double getPriceMultiplier();	// 가격 배수 반환
+	double getPriceMultiplier();
+	virtual string getClassName() = 0;
+	virtual int getMaxRows() = 0;
+	virtual int getMaxCols() = 0;
+	bool isValidSeat(string seatId);
 };
 #endif // !SEAT_H

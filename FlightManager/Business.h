@@ -8,5 +8,8 @@ class Business : public Seat{
 public:
 	Business(string seatNumber);
 	static void getSeatMap(bool seatStatus[]);
+	string getClassName() { return "Business"; }
+	int getMaxRows() { return 5; }
+	int getMaxCols() { return 4; }
 };
 #endif // !BUSINESS_H

@@ -4,7 +4,7 @@
 using namespace std;
 
 Business::Business(string seatNumber) 
-	: Seat(seatNumber, 2.5){ }
+	: Seat(seatNumber, 2.5) { }
 
 void Business::getSeatMap(bool seatStatus[]) {
 	cout << "\n\t" << "A\tB\tC\tD\n";

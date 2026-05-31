@@ -24,11 +24,10 @@ struct Reservation {
 class ReservationSystem {
 private:
 	Flight* flights[10];	// 항공편 10개 저장
+	Seat* seats[3];
 	Passenger* passenger;	// 승객 정보
 	int flightCount;		// 등록된 항공편 수
-	int seatCount;			// 등록된 좌석 수
 	bool seatMap[10][3][30];// 등급별 좌석 배치도
-	int getColCount(int seatClass); // 등급별 열 수 반환
 	int selectedFlight;		// 선택한 항공편 인덱스
 	int selectedClass;      // 선택한 좌석 등급
 	string selectedSeat;    // 선택한 좌석 번호

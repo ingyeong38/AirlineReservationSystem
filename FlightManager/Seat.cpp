@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "Seat.h"
 using namespace std;
 
@@ -6,9 +7,13 @@ Seat::Seat(string seatNumber, double priceMultiplier) {
 	this->seatNumber = seatNumber;
 	this->priceMultiplier = priceMultiplier;
 }
-string Seat::getSeatNumber() {
-	return seatNumber;
-}
+
 double Seat::getPriceMultiplier() {
 	return priceMultiplier;
+}
+
+bool Seat::isValidSeat(string seatId) {
+	int col = seatId[0] - 'A';
+	int row = stoi(seatId.substr(1));
+	return (col >= 0 && col < getMaxCols()) && (row >= 1 && row <= getMaxRows());
 }

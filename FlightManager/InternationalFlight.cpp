@@ -9,7 +9,7 @@ InternationalFlight::InternationalFlight(string flightCode, string departure, st
 	  airportTax(airportTax) { }
 
 int InternationalFlight::calculateFare() {
-	return getBasePrice() + fuelSurcharge + airportTax;
+	return basePrice + fuelSurcharge + airportTax;
 }
 
 string InternationalFlight::getFlightClass() {
@@ -17,9 +17,8 @@ string InternationalFlight::getFlightClass() {
 }
 
 void InternationalFlight::showFareDetail(double multiplier) {
-	int basePrice = getBasePrice();		// 기본 요금
 	int totalPrice = calculateFare();	// 기본 요금 + 유류할증료 + 공항세
-	int finalPrice = (int)(totalPrice* multiplier);
+	int finalPrice = int(totalPrice* multiplier);
 
 	cout << "\n -------------------------------" << endl;
 	cout << " [요금 상세]" << endl;

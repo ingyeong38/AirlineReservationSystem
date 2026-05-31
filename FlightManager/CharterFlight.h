@@ -12,5 +12,6 @@ public:
 	int calculateFare();
 	string getFlightClass();
 	void showFareDetail(double multiplier);
+	bool hasSeatClass() { return false; }
 };
 #endif // !CHARTERFLIGHT_H

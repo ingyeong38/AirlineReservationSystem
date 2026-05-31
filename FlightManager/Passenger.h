@@ -11,6 +11,8 @@ private:
 	string passPortNo;	// 여권번호
 public:
 	Passenger(string name, int age, string passport);
+	void printInfo();
+	void printTicket();
 	string getName();	// 이름 반환
 	int getAge();		// 나이 반환
 	string getPassportNo();	// 여권번호 반환
