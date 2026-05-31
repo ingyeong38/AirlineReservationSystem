@@ -7,7 +7,6 @@ using namespace std;
 class FirstClass : public Seat {
 public:
 	FirstClass(string seatNumber);
-	string getClassName();
-	static void getSeatMap();
+	static void getSeatMap(bool seatStatus[]);
 };
 #endif // !FIRSTCLASS_H

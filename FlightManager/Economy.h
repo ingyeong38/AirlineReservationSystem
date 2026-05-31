@@ -7,7 +7,6 @@ using namespace std;
 class Economy : public Seat{
 public:
 	Economy(string seatNumber);
-	string getClassName();
-	static void getSeatMap();
+	static void getSeatMap(bool seatStatus[]);
 };
 #endif // !ECONOMY_H

@@ -12,6 +12,12 @@ Flight::Flight(string flightCode, string departure, string arrival, int distance
 string Flight::getFlightCode() {
 	return flightCode;
 }
+string Flight::getDeparture() {
+	return departure;
+}
+string Flight::getArrival() {
+	return arrival;
+}
 int Flight::getBasePrice() {
 	return basePrice;
 }

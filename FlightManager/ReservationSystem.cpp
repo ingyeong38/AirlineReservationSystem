@@ -23,20 +23,16 @@ ReservationSystem::ReservationSystem()		// 초기 항공편 목록(10개) 저장
 	  selectedClass(-1),
 	  selectedSeat("")
 {
-	flights[0] = new DomesticFlight("KE1201", "Seoul(GMP)", "Jeju(CJU)", 450, 90000);
-	flights[1] = new DomesticFlight("OZ8901", "Seoul(GMP)", "Busan(PUS)", 330, 80000);
-	flights[2] = new DomesticFlight("7C101", "Busan(PUS)", "Jeju(CJU)", 300, 70000);
-	flights[3] = new DomesticFlight("TW901", "Daegu(TAE)", "Jeju(CJU)", 320, 75000);
-
-	flights[4] = new InternationalFlight("KE701", "Seoul(ICN)", "Tokyo(NRT)", 1200, 300000, 35000, 28000);
-	flights[5] = new InternationalFlight("OZ361", "Seoul(ICN)", "Shanghai(PVG)", 900, 250000, 30000, 25000);
-	flights[6] = new InternationalFlight("UA893", "Seoul(ICN)", "Guam(GUM)", 9000, 270000, 150000, 45000);
-	flights[7] = new InternationalFlight("SQ607", "Seoul(ICN)", "Bangkok(BKK)", 4600, 230000, 70000, 35000);
-	flights[8] = new CharterFlight("CH001", "Seoul(ICN)", "Danang(DAD)", 3000, 15000000);
-	flights[9] = new CharterFlight("CH002", "Seoul(ICN)", "Guam(GUM)", 3400, 18000000);
-
-	// 좌석 배열은 지우고 승객이 좌석 저장할 객체 or 배열 만들기
-	// unordered_map 사용해서 객체 하나에 승객이 예약한 정보 저장
+	flights[0] = new DomesticFlight("KE1201", "Seoul(GMP)", "Jeju(CJU)", 450, 15000);
+	flights[1] = new DomesticFlight("OZ8901", "Seoul(GMP)", "Busan(PUS)", 330, 16000);
+	flights[2] = new DomesticFlight("7C101", "Busan(PUS)", "Jeju(CJU)", 300, 15000);
+	flights[3] = new DomesticFlight("TW901", "Daegu(TAE)", "Jeju(CJU)", 320, 14000);
+	flights[4] = new InternationalFlight("KE701", "Seoul(ICN)", "Tokyo(NRT)", 1200, 150000, 28000, 17000);
+	flights[5] = new InternationalFlight("OZ361", "Seoul(ICN)", "Shanghai(PVG)", 900, 120000, 25000, 15000);
+	flights[6] = new InternationalFlight("UA893", "Seoul(ICN)", "Guam(GUM)", 3400, 200000, 40000, 25000);
+	flights[7] = new InternationalFlight("SQ607", "Seoul(ICN)", "Bangkok(BKK)", 4600, 180000, 35000, 20000);
+	flights[8] = new CharterFlight("CH001", "Seoul(ICN)", "Danang(DAD)", 3000, 5000000);
+	flights[9] = new CharterFlight("CH002", "Seoul(ICN)", "Guam(GUM)", 3400, 6500000);
 
 	for (int i = 0; i < 10; i++) {
 		for (int j = 0; j < 3; j++) {
@@ -126,34 +122,30 @@ void ReservationSystem::menu() {
 				showSeatMap(selectedFlight, classChoice);	// 선택한 등급의 좌석 배치도 출력(Economy/Business/FirstClass)
 				string seatNum;
 				while (true) {
-					cout << "원하시는 좌석 번호를 입력하세요. (예: 2A): ";
+					cout << "원하시는 좌석 번호를 입력하세요. (예: A2): ";
 					cin >> seatNum;
-					int seatInt = seatNum[0] - '0';
-					int seatCharUp = seatNum[1] - 'A';		// 열 값을 정수값으로 저장(A -> 0, B -> 1, C -> 2, ...)
-					int seatCharLow = seatNum[1] - 'a';
-					// 2a로 입력했을 때 2A로 저장되게
+					seatNum[0] = toupper(seatNum[0]);
+					int seatChar = seatNum[0] - 'A';		// 열 값을 정수값으로 저장(A -> 0, B -> 1, C -> 2, ...)
+					int seatInt = stoi(seatNum.substr(1));
 					if (classChoice == 1) {
-						if ((seatInt >= 1 && seatInt <= 6) && (seatCharUp >= 0 && seatCharUp <= 4) || (seatCharLow >= 0 && seatCharLow <= 4)) {
-							selectSeat(seatNum);
-							break;
+						if ((seatInt >= 1 && seatInt <= 6) && (seatChar >= 0 && seatChar <= 4)) {
+							if (selectSeat(seatNum)) break;
 						}
 						else {
 							cout << "배치도의 범위 내에서 선택해 주세요." << endl;
 						}
 					}
 					else if (classChoice == 2) {
-						if ((seatInt >= 1 && seatInt <= 5) && (seatCharUp >= 0 && seatCharUp <= 3) || (seatCharLow >= 0 && seatCharLow <= 3)) {
-							selectSeat(seatNum);
-							break;
+						if ((seatInt >= 1 && seatInt <= 5) && (seatChar >= 0 && seatChar <= 3)) {
+							if (selectSeat(seatNum)) break;
 						}
 						else {
 							cout << "배치도의 범위 내에서 선택해 주세요." << endl;
 						}
 					}
 					else if (classChoice == 3) {
-						if ((seatInt >= 1 && seatInt <= 4) && (seatCharUp >= 0 && seatCharUp <= 1) || (seatCharLow >= 0 && seatCharLow <= 1)) {
-							selectSeat(seatNum);
-							break;
+						if ((seatInt >= 1 && seatInt <= 4) && (seatChar >= 0 && seatChar <= 1)) {
+							if (selectSeat(seatNum)) break;
 						}
 						else {
 							cout << "배치도의 범위 내에서 선택해 주세요." << endl;
@@ -169,7 +161,7 @@ void ReservationSystem::menu() {
 			findReservation();	// 예약 확인
 			break;
 		case 3:
-			cout << "\n시스템을 종료합니다. 이용해 주셔서 감사합니다.\n";
+			cout << " 시스템을 종료합니다. 이용해 주셔서 감사합니다.\n";
 			return;		// menu() 함수를 빠져나가며 프로그램 종료
 		default:
 			cout << " 1~3 중에서 입력해 주세요." << endl;
@@ -191,13 +183,16 @@ void ReservationSystem::showSeatMap(int flightChoice, int seatClass) {
 	// 각 항공편마다 선택된 좌석은 X로 나오게끔
 	// 승객이 선택한 등급
 	if ( seatClass == 1) {
-		Economy::getSeatMap();
+		cout << "\n [Economy 좌석]";
+		Economy::getSeatMap(seatMap[flightChoice][0]);
 	}
 	else if (seatClass == 2) {
-		Business::getSeatMap();
+		cout << "\n [Business 좌석]";
+		Business::getSeatMap(seatMap[flightChoice][1]);
 	}
 	else if (seatClass == 3) {
-		FirstClass::getSeatMap();
+		cout << "\n [FirstClass 좌석]";
+		FirstClass::getSeatMap(seatMap[flightChoice][2]);
 	}
 	else {
 		cout << "등급 번호는 1~3 중에서 입력해 주세요." << endl;
@@ -211,26 +206,25 @@ int ReservationSystem::getColCount(int selectClass) {
 	else 
 		return 2;				// FirstClass 좌석 열
 }
-void ReservationSystem::selectSeat(string seatNum) {
+bool ReservationSystem::selectSeat(string seatNum) {
 	// 좌석 번호 입력받아 배정 후 반환
-	int row = seatNum[0] - '1';
-	int col = seatNum[1] - 'A';
+	int col = seatNum[0] - 'A';
+	int row = stoi(seatNum.substr(1)) - 1;
 	int colCount = getColCount(selectedClass);
 	int index = row * colCount + col;
 
 	if (seatMap[selectedFlight][selectedClass - 1][index]) {
-		cout << "이미 예약된 좌석입니다. 다른 좌석을 선택해주세요." << endl;
+		cout << "이미 예약된 좌석입니다.\n다른 좌석을 선택해주세요." << endl;
+		return false;
 	}
 	else {
 		seatMap[selectedFlight][selectedClass - 1][index] = true;
 		selectedSeat = seatNum;
 		cout << seatNum << " 좌석이 선택되었습니다." << endl;
 		Sleep(2000);
+		return true;
 	}
-	// 해당 좌석이 이미 예약되었는지 확인
-	// seatMap을 통해 확인
-    // 예약 가능하면 → true로 변경, 멤버 변수에 저장
-    // 이미 예약됨 → 다시 입력 안내
+
 }
 void ReservationSystem::reserve() {
 	// 결제 확인, 예약번호 생성, E-Ticket 발급
@@ -240,16 +234,86 @@ void ReservationSystem::reserve() {
 	else multiplier = 4.0;
 	flights[selectedFlight]->showFareDetail(multiplier);
 	char confirm;
-	cout << "결제하시겠습니까? (Y/N): ";
+	cout << " 결제하시겠습니까? (Y/N): ";
 	cin >> confirm;
 
 	if (confirm == 'Y' || confirm == 'y') {
 		// map으로 예약 번호 저장
+		counter++;
+		string num = to_string(counter);
+		while (num.length() < 4) {
+			num = "0" + num;
+		}
+		reservationId = flights[selectedFlight]->getFlightCode() + "-A" + num;
+
+		double multiplier = 1.0;
+		if (selectedClass == 1) multiplier = 1.0;
+		else if (selectedClass == 2) multiplier = 2.5;
+		else if (selectedClass == 3) multiplier = 4.0;
+
+		int finalPrice;
+		if (flights[selectedFlight]->getFlightClass() == "전세기")
+			finalPrice = flights[selectedFlight]->calculateFare();
+		else
+			finalPrice = int(flights[selectedFlight]->calculateFare() * multiplier);
+
+		Reservation r;
+		r.reservationId = reservationId;
+		r.passengerName = passenger->getName();
+		r.passportNo = passenger->getPassportNo();
+		r.flightIndex = selectedFlight;
+		r.seatClass = selectedClass;
+		r.seatNumber = selectedSeat;
+		r.finalPrice = finalPrice;
+
+		reservations[reservationId] = r;
+
+		// E-Ticket 출력
+		cout << " 결제가 정상적으로 처리되었습니다." << endl;
+		cout << " E-Ticket을 발급합니다." << endl;
+		string className;
+		if (selectedClass == 1) className = "Economy";
+		else if (selectedClass == 2) className = "Business";
+		else if (selectedClass == 3) className = "FirstClass";
+
+		cout << "\n ========= E-TICKET =========" << endl;
+		cout << " 예약 번호: " << reservationId << endl;
+		cout << " 승객명: " << passenger->getName() << endl;
+		cout << " 여권번호: " << passenger->getPassportNo() << endl;
+		cout << " 편명: " << flights[selectedFlight]->getFlightCode() << " (" << flights[selectedFlight]->getFlightClass() << ")" << endl;
+		cout << " 구간: " << flights[selectedFlight]->getDeparture() << " → " << flights[selectedFlight]->getArrival() << endl;
+		cout << " 좌석: " << selectedSeat << " (" << className << ")" << endl;
+		cout << " 결제 금액: " << finalPrice << "원" << endl;
+		cout << " =============================" << endl;
 	}
 	else {
-		cout << "결제가 취소되었습니다." << endl;
+		int row = selectedSeat[1] - '1';
+		int col = selectedSeat[0] - 'A';
+		int colCount = getColCount(selectedClass);
+		int index = row * colCount + col;
+		seatMap[selectedFlight][selectedClass - 1][index] = false;
+		cout << " 결제가 취소되었습니다." << endl;
 	}
 }
 void ReservationSystem::findReservation() {
 	// 예약번호로 기존 예약 정보 조회 및 출력
+	string searchId;
+	cout << " 예약 번호를 입력하세요: ";
+	cin >> searchId;
+
+	if (reservations.find(searchId) != reservations.end()) {
+		Reservation r = reservations[searchId];
+		cout << "\n [예약 정보]" << endl;
+		cout << " 예약 번호: " << r.reservationId << endl;
+		cout << " 승객명: " << r.passengerName << endl;
+		cout << " 편명: " << flights[r.flightIndex]->getFlightCode() << " (" << flights[r.flightIndex]->getFlightClass() << ")" << endl;
+		cout << " 구간: " << flights[r.flightIndex]->getDeparture() << " → " << flights[r.flightIndex]->getArrival() << endl;
+		cout << " 좌석: " << r.seatNumber << endl;
+		cout << " 결제 금액: " << r.finalPrice << "원\n" << endl;
+		system("pause");
+	}
+	else {
+		cout << " 해당 예약번호를 찾을 수 없습니다.";
+		Sleep(1000);
+	}
 }

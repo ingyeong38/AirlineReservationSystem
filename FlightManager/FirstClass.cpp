@@ -6,16 +6,16 @@ using namespace std;
 FirstClass::FirstClass(string seatNumber)
 	: Seat(seatNumber, 4.0){ }
 
-string FirstClass::getClassName() {
-	return "[FirstClass ÁÂ¼®]\n";
-}
-
-void FirstClass::getSeatMap() {
+void FirstClass::getSeatMap(bool seatStatus[]) {
 	cout << "\n\t" << "A\tB\n";
-	for (int i = 1; i < 5; i++) {
-		cout << i << "      ";
+	for (int i = 0; i < 4; i++) {
+		cout << i + 1 << "      ";
 		for (int j = 0; j < 2; j++) {
-			cout << "[O]     ";
+			int index = i * 2 + j;
+			if(seatStatus[index])
+				cout << "[x]     ";
+			else
+				cout << "[O]     ";
 		}
 		cout << endl;
 	}

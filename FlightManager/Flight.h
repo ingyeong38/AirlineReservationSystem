@@ -14,6 +14,8 @@ private:
 public:
 	Flight(string flightCode, string departure, string arrival, int distance, int basePrice = 0);
 	string getFlightCode();		// 편명 반환
+	string getDeparture();
+	string getArrival();
 	int getDistance();			// 운항 거리 반환
 	int getBasePrice();			// 기본요금 반환	// 기존 UML에서 추가함
 	virtual int calculateFare()=0;// 요금 계산

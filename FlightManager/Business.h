@@ -7,7 +7,6 @@ using namespace std;
 class Business : public Seat{
 public:
 	Business(string seatNumber);
-	string getClassName();
-	static void getSeatMap();
+	static void getSeatMap(bool seatStatus[]);
 };
 #endif // !BUSINESS_H
