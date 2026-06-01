@@ -6,10 +6,11 @@
 using namespace std;
 
 class DomesticFlight : public Flight{
+protected:
+	void printFare();
+	string getFlightClass();
 public:
 	DomesticFlight(string flightCode, string departure, string arrival, int distance, int basePrice);
 	int calculateFare();
-	string getFlightClass();
-	void showFareDetail(double multiplier);
 };
 #endif // !DOMESTICFLIGHT_H

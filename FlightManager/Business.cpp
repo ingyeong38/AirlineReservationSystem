@@ -3,8 +3,8 @@
 #include "Business.h"
 using namespace std;
 
-Business::Business(string seatNumber) 
-	: Seat(seatNumber, 2.5) { }
+Business::Business() 
+	: Seat(2.5) { }
 
 void Business::getSeatMap(bool seatStatus[]) {
 	cout << "\n\t" << "A\tB\tC\tD\n";

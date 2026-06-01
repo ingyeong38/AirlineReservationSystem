@@ -33,9 +33,9 @@ ReservationSystem::ReservationSystem()		// 초기 항공편 목록(10개) 저장
 	flights[8] = new CharterFlight("CH001", "Seoul(ICN)", "Danang(DAD)", 3000, 5000000);
 	flights[9] = new CharterFlight("CH002", "Seoul(ICN)", "Guam(GUM)", 3400, 6500000);
 
-	seats[0] = new Economy("");
-	seats[1] = new Business("");
-	seats[2] = new FirstClass("");
+	seats[0] = new Economy();
+	seats[1] = new Business();
+	seats[2] = new FirstClass();
 
 	for (int i = 0; i < 10; i++) {
 		for (int j = 0; j < 3; j++) {
@@ -241,14 +241,15 @@ void ReservationSystem::reserve() {
 		// E-Ticket 출력
 		cout << " 결제가 정상적으로 처리되었습니다." << endl;
 		cout << " E-Ticket을 발급합니다." << endl;
-		string className = seats[selectedClass - 1]->getClassName();
 	
 		cout << "\n ========= E-TICKET =========" << endl;
 		cout << " 예약 번호: " << reservationId << endl;
-		// 승객명, 여권번호도 passenger.cpp에서 불러오도록
 		passenger->printTicket();
 		flights[selectedFlight]->printTicketInfo();
-		cout << " 좌석: " << selectedSeat << " (" << className << ")" << endl;
+		if (flights[selectedFlight]->hasSeatClass()) {
+			string className = seats[selectedClass - 1]->getClassName();
+			cout << " 좌석: " << selectedSeat << " (" << className << ")" << endl;
+		}
 		cout << " 결제 금액: " << finalPrice << "원" << endl;
 		cout << " =============================\n" << endl;
 	}

@@ -22,9 +22,6 @@ void Passenger::printTicket() {
 string Passenger::getName() {
 	return name;
 }
-int Passenger::getAge() {
-	return age;
-}
 string Passenger::getPassportNo() {
 	return passPortNo;
 }

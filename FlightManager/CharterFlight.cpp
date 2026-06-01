@@ -4,7 +4,7 @@
 using namespace std;
 
 CharterFlight::CharterFlight(string flightCode, string departure, string arrival, int distance, int fixedPrice)
-	: Flight(flightCode, departure, arrival, distance),
+	: Flight(flightCode, departure, arrival, distance, fixedPrice),
 	  fixedPrice(fixedPrice) { }
 
 int CharterFlight::calculateFare() {
@@ -15,11 +15,7 @@ string CharterFlight::getFlightClass() {
 	return "전세기";
 }
 
-void CharterFlight::showFareDetail(double multiplier) {
-	cout << "\n ------------------------------" << endl;
-	cout << " [요금 상세]" << endl;
+void CharterFlight::printFare() {
 	cout << " 전세기 고정 요금:\t" << fixedPrice << "원" << endl;
 	cout << " (좌석 등급 배수 미적용)" << endl;
-	cout << " ------------------------------" << endl;
-	cout << " 최종 결제 금액:\t" << fixedPrice << "원" << endl;
 }

@@ -3,8 +3,7 @@
 #include "Seat.h"
 using namespace std;
 
-Seat::Seat(string seatNumber, double priceMultiplier) {
-	this->seatNumber = seatNumber;
+Seat::Seat(double priceMultiplier) {
 	this->priceMultiplier = priceMultiplier;
 }
 

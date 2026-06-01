@@ -12,12 +12,13 @@ private:
 protected:
 	int distance;			// 운항 거리(km)
 	int basePrice;			// 기본요금(원)
+	virtual void printFare() = 0;	// 항공편별 요금 항목만 출력
+	virtual string getFlightClass() = 0;	// 비행기 정보 출력
 public:
 	Flight(string flightCode, string departure, string arrival, int distance, int basePrice = 0);
 	string getFlightCode();		// 편명 반환
 	virtual int calculateFare()=0;// 요금 계산
-	virtual string getFlightClass() = 0;	// 비행기 정보 출력
-	virtual void showFareDetail(double multiplier) = 0; // 최종 계산 요금 출력
+	void showFareDetail(double multiplier); // 최종 계산 요금 출력
 	virtual bool hasSeatClass() { return true; }
 	void printSummary();			// 항공편 정보 출력
 	void printDetail();

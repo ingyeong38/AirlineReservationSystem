@@ -14,14 +14,6 @@ string DomesticFlight::getFlightClass() {
 	return "국내선";
 }
 
-void DomesticFlight::showFareDetail(double multiplier) {
-	int fare = calculateFare();
-	int finalPrice = int(fare * multiplier);
-
-	cout << "\n -------------------------------" << endl;
-	cout << " [요금 상세]" << endl;
-	cout << " 기본 요금(거리 계산):\t" << fare << "원" << endl;
-	cout << " x 좌석 등급(x" << multiplier << ")" << endl;
-	cout << " -------------------------------" << endl;
-	cout << " 최종 결제 금액:\t" << finalPrice << "원" << endl;
+void DomesticFlight::printFare() {
+	cout << " 기본 요금(거리 계산):\t" << calculateFare() << "원" << endl;
 }

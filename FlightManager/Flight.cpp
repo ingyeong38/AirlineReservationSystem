@@ -13,6 +13,22 @@ string Flight::getFlightCode() {
 	return flightCode;
 }
 
+void Flight::showFareDetail(double multiplier) {
+	int finalPrice;
+	if (hasSeatClass())
+		finalPrice = int(calculateFare() * multiplier);
+	else
+		finalPrice = calculateFare();
+
+	cout << "\n -------------------------------" << endl;
+	cout << " [요금 상세]" << endl;
+	printFare();
+	if(hasSeatClass())
+		cout << " x 좌석 등급(x" << multiplier << ")" << endl;
+	cout << " -------------------------------" << endl;
+	cout << " 최종 결제 금액:\t" << finalPrice << "원" << endl;
+}
+
 void Flight::printSummary() {
 	cout << "\t" << flightCode << "\t|  " << departure << "  →  " << arrival << "\t| " << getFlightClass() <<endl; // endl 앞에 국내선/국제선/전세기 출력 변수 추가
 }

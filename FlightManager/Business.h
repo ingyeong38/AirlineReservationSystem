@@ -6,7 +6,7 @@ using namespace std;
 
 class Business : public Seat{
 public:
-	Business(string seatNumber);
+	Business();
 	static void getSeatMap(bool seatStatus[]);
 	string getClassName() { return "Business"; }
 	int getMaxRows() { return 5; }

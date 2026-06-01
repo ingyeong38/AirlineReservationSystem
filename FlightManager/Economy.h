@@ -6,7 +6,7 @@ using namespace std;
 
 class Economy : public Seat{
 public:
-	Economy(string seatNumber);
+	Economy();
 	static void getSeatMap(bool seatStatus[]);
 	string getClassName() { return "Economy"; }
 	int getMaxRows() { return 6; }

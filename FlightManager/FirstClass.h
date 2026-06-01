@@ -6,7 +6,7 @@ using namespace std;
 
 class FirstClass : public Seat {
 public:
-	FirstClass(string seatNumber);
+	FirstClass();
 	static void getSeatMap(bool seatStatus[]);
 	string getClassName() { return "FirstClass"; }
 	int getMaxRows() { return 4; }

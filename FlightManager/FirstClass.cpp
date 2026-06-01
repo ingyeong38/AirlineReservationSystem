@@ -3,8 +3,8 @@
 #include "FirstClass.h"
 using namespace std;
 
-FirstClass::FirstClass(string seatNumber)
-	: Seat(seatNumber, 4.0){ }
+FirstClass::FirstClass()
+	: Seat(4.0){ }
 
 void FirstClass::getSeatMap(bool seatStatus[]) {
 	cout << "\n\t" << "A\tB\n";

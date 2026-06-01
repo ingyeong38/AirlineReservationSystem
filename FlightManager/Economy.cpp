@@ -3,8 +3,8 @@
 #include "Economy.h"
 using namespace std;
 
-Economy::Economy(string seatNumber)
-	: Seat(seatNumber, 1.0) { }
+Economy::Economy()
+	: Seat(1.0) { }
 
 void Economy::getSeatMap(bool seatStatus[]) {
 	cout << "\n\t" << "A\tB\tC\tD\tE\n";
