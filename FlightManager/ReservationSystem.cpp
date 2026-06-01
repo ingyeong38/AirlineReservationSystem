@@ -14,14 +14,15 @@ using namespace std;
 
 int ReservationSystem::counter = 0;
 
-ReservationSystem::ReservationSystem()		// 초기 항공편 목록(10개) 저장
+ReservationSystem::ReservationSystem()
 	: passenger(nullptr),
 	  flightCount(10),
 	  reservationId(""),
 	  selectedFlight(-1),
 	  selectedClass(-1),
 	  selectedSeat("")
-{
+{	
+	// 초기 항공편 목록(10개) 저장
 	flights[0] = new DomesticFlight("KE1201", "Seoul(GMP)", "Jeju(CJU)", 450, 15000);
 	flights[1] = new DomesticFlight("OZ8901", "Seoul(GMP)", "Busan(PUS)", 330, 16000);
 	flights[2] = new DomesticFlight("7C101", "Busan(PUS)", "Jeju(CJU)", 300, 15000);
@@ -32,11 +33,13 @@ ReservationSystem::ReservationSystem()		// 초기 항공편 목록(10개) 저장
 	flights[7] = new InternationalFlight("SQ607", "Seoul(ICN)", "Bangkok(BKK)", 4600, 180000, 35000, 20000);
 	flights[8] = new CharterFlight("CH001", "Seoul(ICN)", "Danang(DAD)", 3000, 5000000);
 	flights[9] = new CharterFlight("CH002", "Seoul(ICN)", "Guam(GUM)", 3400, 6500000);
-
+	
+	// 좌석 등급(economy, business, firstclass) 저장
 	seats[0] = new Economy("");
 	seats[1] = new Business("");
 	seats[2] = new FirstClass("");
 
+	// 좌석 배치도 초기화
 	for (int i = 0; i < 10; i++) {
 		for (int j = 0; j < 3; j++) {
 			for (int k = 0; k < 30; k++)
@@ -58,7 +61,7 @@ ReservationSystem::~ReservationSystem() {	// 동적 할당 받은 객체를 delete
 	if (passenger != nullptr)
 		delete passenger;
 }
-void ReservationSystem::run() {
+void ReservationSystem::run() {	// 프로그램 실행
 	cout << "======================================================" << endl;
 	cout << "                  항공권 예약 시스템     " << endl;
 	cout << "======================================================" << endl;
@@ -78,12 +81,11 @@ void ReservationSystem::run() {
 	cin >> passportNo;
 	passenger = new Passenger(name, age, passportNo);	// 입력받은 승객 정보를 passenger 객체에 동적 할당
 	system("cls");
-	passenger->printInfo();
+	passenger->printInfo();	// 입력받은 승객 정보 출력
 	Sleep(2000);
 	menu();
 }
-void ReservationSystem::menu() {
-	// 메인 메뉴 출력 및 기능 선택 
+void ReservationSystem::menu() {	// 메인 메뉴 출력 및 기능 선택 
 	int choice = 0;	// 메뉴 번호
 	while (true) {	// 프로그램 종료 선택 시까지 무한 반복
 		system("cls");	// 화면 초기화
@@ -96,17 +98,17 @@ void ReservationSystem::menu() {
 		cin >> choice;
 		
 		switch (choice) {
-		case 1:	// 1. 항공편 예약 선택
+		case 1:	// 1. 항공편 예약
 			showFlights();	// 항공편 목록 출력
 			
-			int flightChoice;
+			int flightChoice;	// 항공편 번호 선택
 			cout << "예약하실 항공편 번호(1~10)를 선택하세요(0: 메뉴로 돌아가기): ";
 			cin >> flightChoice;
 			if (flightChoice == 0)	break;	// 항공편 목록만 보고 메인 메뉴로 복귀
 			
-			selectedFlight = flightChoice - 1;
+			selectedFlight = flightChoice - 1;	// 배열 인덱스 접근 => 항공편 번호 -1
 			system("cls");
-			flights[selectedFlight]->printDetail();
+			flights[selectedFlight]->printDetail();	// 선택한 항공편의 정보 출력
 			Sleep(1000);
 
 			if (flights[flightChoice - 1]->hasSeatClass()) {	// 전세기는 좌석 등급 없음
@@ -245,7 +247,6 @@ void ReservationSystem::reserve() {
 	
 		cout << "\n ========= E-TICKET =========" << endl;
 		cout << " 예약 번호: " << reservationId << endl;
-		// 승객명, 여권번호도 passenger.cpp에서 불러오도록
 		passenger->printTicket();
 		flights[selectedFlight]->printTicketInfo();
 		cout << " 좌석: " << selectedSeat << " (" << className << ")" << endl;

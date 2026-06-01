@@ -20,7 +20,7 @@ void DomesticFlight::showFareDetail(double multiplier) {
 
 	cout << "\n -------------------------------" << endl;
 	cout << " [요금 상세]" << endl;
-	cout << " 기본 요금(거리 계산):\t" << fare << "원" << endl;
+	cout << " 기본 요금(거리 계산):\t" << finalPrice << "원" << endl;
 	cout << " x 좌석 등급(x" << multiplier << ")" << endl;
 	cout << " -------------------------------" << endl;
 	cout << " 최종 결제 금액:\t" << finalPrice << "원" << endl;
