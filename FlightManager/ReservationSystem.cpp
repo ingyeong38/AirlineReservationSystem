@@ -131,7 +131,6 @@ void ReservationSystem::menu() {
 						cout << "배치도의 범위 내에서 선택해 주세요." << endl;
 					else if (selectSeat(seatNum))
 						break;
-
 				}
 			}
 			//string chosenSeat = selectSeat(classChoice);
