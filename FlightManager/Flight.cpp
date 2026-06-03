@@ -9,11 +9,8 @@ Flight::Flight(string flightCode, string departure, string arrival, int distance
 	this->distance = distance;
 	this->basePrice = basePrice;
 }
-string Flight::getFlightCode() {
-	return flightCode;
-}
 
-void Flight::showFareDetail(double multiplier) {
+int Flight::showFareDetail(double multiplier) {
 	int finalPrice;
 	if (hasSeatClass())
 		finalPrice = int(calculateFare() * multiplier);
@@ -27,6 +24,7 @@ void Flight::showFareDetail(double multiplier) {
 		cout << " x 좌석 등급(x" << multiplier << ")" << endl;
 	cout << " -------------------------------" << endl;
 	cout << " 최종 결제 금액:\t" << finalPrice << "원" << endl;
+	return finalPrice;
 }
 
 void Flight::printSummary() {

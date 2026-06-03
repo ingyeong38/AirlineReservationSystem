@@ -5,11 +5,11 @@
 using namespace std;
 
 class FirstClass : public Seat {
+private:
+	int rowCount();
+	int colCount();
 public:
 	FirstClass();
-	static void getSeatMap(bool seatStatus[]);
 	string getClassName() { return "FirstClass"; }
-	int getMaxRows() { return 4; }
-	int getMaxCols() { return 2; }
 };
 #endif // !FIRSTCLASS_H

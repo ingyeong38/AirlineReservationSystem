@@ -2,12 +2,17 @@
 #include "Passenger.h"
 using namespace std;
 
-Passenger::Passenger(string name, int age, string passportno) {
+Passenger::Passenger(string name, int age, string passportNo) 
+	: selectedFlight(0), 
+	  selectedSeatClass(0),
+	  selectedSeat("\0")
+{
 	this->name = name;
 	this->age = age;
-	this->passPortNo = passportno;
+	this->passPortNo = passportNo;
 }
-void Passenger::printInfo() {
+
+void Passenger::printInfo() {			//  승객 정보 등록 확인용
 	cout << "-------------------------------------------" << endl;
 	cout << " " << name << "님의 정보가 정상적으로 등록되었습니다." << endl;
 	cout << " 이름: " << name << endl;
@@ -15,13 +20,24 @@ void Passenger::printInfo() {
 	cout << " 여권번호: " << passPortNo << endl;
 	cout << "-------------------------------------------" << endl;
 }
-void Passenger::printTicket() {
+
+void Passenger::printTicket() {			// E-Ticket에서 승객 정보 출력
 	cout << " 승객명: " << name << endl;
 	cout << " 여권번호: " << passPortNo << endl;
 }
-string Passenger::getName() {
-	return name;
-}
-string Passenger::getPassportNo() {
+
+const string& Passenger::getPassportNo() const {		// 여권 번호 반환
 	return passPortNo;
+}
+
+void Passenger::setSelectedFlight(int flight) {	// 항공편 선택
+	this->selectedFlight = flight;
+}
+
+void Passenger::setSelectedSeatClass(int seatSeatClass) {	// 좌석 등급 선택
+	this->selectedSeatClass = seatSeatClass;
+}
+
+void Passenger::setSelectedSeat(string seatNum) {		// 좌석 선택
+	this->selectedSeat = seatNum;
 }
