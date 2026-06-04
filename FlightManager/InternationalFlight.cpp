@@ -10,11 +10,11 @@ InternationalFlight::InternationalFlight(string flightCode, string departure, st
 	this->airportTax = airportTax;
 }
 
-int InternationalFlight::calculateFare() {
-	return basePrice + fuelSurcharge + airportTax;
+int InternationalFlight::calculateFare() {			// 요금 계산
+	return basePrice + fuelSurcharge + airportTax;	// 기본 + 유류할증료 + 공항세
 }
 
-void InternationalFlight::printFare() {
+void InternationalFlight::printFare() {		// 요금 상세 출력용
 	cout << " 기본 요금:\t\t" << basePrice << "원" << endl;
 	cout << " + 유류할증료:\t\t" << fuelSurcharge << "원" << endl;
 	cout << " + 공항세:\t\t" << airportTax << "원" << endl;
