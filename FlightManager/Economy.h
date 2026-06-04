@@ -11,6 +11,5 @@ private:
 public:
 	Economy();
 	string getClassName() { return "Economy"; }
-	
 };
 #endif // !ECONOMY_H
