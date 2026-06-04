@@ -5,11 +5,12 @@
 using namespace std;
 
 class Economy : public Seat{
+private:
+	int rowCount();
+	int colCount();
 public:
 	Economy();
-	static void getSeatMap(bool seatStatus[]);
 	string getClassName() { return "Economy"; }
-	int getMaxRows() { return 6; }
-	int getMaxCols() { return 5; }
+	
 };
 #endif // !ECONOMY_H

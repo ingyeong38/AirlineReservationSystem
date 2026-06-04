@@ -6,17 +6,10 @@ using namespace std;
 Business::Business() 
 	: Seat(2.5) { }
 
-void Business::getSeatMap(bool seatStatus[]) {
-	cout << "\n\t" << "A\tB\tC\tD\n";
-	for (int i = 0; i < 5; i++) {
-		cout << i + 1<< "     ";
-		for (int j = 0; j < 4; j++) {
-			int index = i * 4 + j;
-			if(seatStatus[index])
-				cout << " [x]    ";
-			else
-				cout << " [O]    ";
-		}
-		cout << endl;
-	}
+int Business::rowCount() {
+	return 5;
+}
+
+int Business::colCount() {
+	return 4;
 }
