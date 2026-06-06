@@ -93,7 +93,6 @@ void ReservationSystem::menu() {	// 메인 메뉴 출력 및 기능 선택
 		cout << " --------------------------------------" << std::endl;
 		cout << " 원하시는 메뉴의 번호를 입력해주세요: ";
 		cin >> choice;
-		// 숫자가 아닌 문자 입력 시 오류 해결
 
 		switch (choice) {
 		case 1:	// 1. 항공편 예약 선택
@@ -103,7 +102,7 @@ void ReservationSystem::menu() {	// 메인 메뉴 출력 및 기능 선택
 			cout << "예약하실 항공편 번호(1~10)를 선택하세요(0: 메뉴로 돌아가기): ";
 			cin >> flightChoice;
 			if (flightChoice == 0)	break;	// 항공편 목록만 보고 메인 메뉴로 복귀
-			else if (flightChoice > 10 || flightChoice < 0) {	// 0 ~ 10 이외의 다른 값을 입력한 경우 
+			else if (flightChoice > 10 || flightChoice < 1) {	// 0 ~ 10 이외의 다른 값을 입력한 경우 
 				cout << "항공편 범위 내에서 선택해 주세요." << endl;
 				Sleep(1200);
 				continue;
@@ -123,6 +122,11 @@ void ReservationSystem::menu() {	// 메인 메뉴 출력 및 기능 선택
 				int classChoice;		// 좌석 등급
 				cin >> classChoice;
 
+				if (classChoice < 1 || classChoice > 3) {
+					cout << "1~3 중에서 입력해 주세요." << endl;
+					Sleep(1000);
+					continue;
+				}
 				passenger->setSelectedSeatClass(classChoice - 1);	// 승객이 선택한 좌석 등급 번호를 저장
 
 				showSeatMap(passenger->getSelectedFlight(), passenger->getSelectedSeatClass());	// 선택한 등급의 좌석 배치도 출력

@@ -13,6 +13,7 @@ protected:
 	virtual int colCount() = 0;	// 각 클래스의 최대 열 크기 반환
 public:
 	Seat(double priceMultiplier);
+	virtual ~Seat() {}
 	double getPriceMultiplier();	// 가격 배수 반환
 	virtual string getClassName() = 0;	// 각 클래스의 좌석 등급 반환
 	void printSeatMap(bool seatStatus[]);	// 좌석 배치도 출력

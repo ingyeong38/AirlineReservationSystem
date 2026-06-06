@@ -5,7 +5,7 @@ using namespace std;
 Passenger::Passenger(string name, int age, string passportNo) 
 	: selectedFlight(0), 
 	  selectedSeatClass(0),
-	  selectedSeat("\0")
+	  selectedSeat("")
 {
 	this->name = name;
 	this->age = age;
