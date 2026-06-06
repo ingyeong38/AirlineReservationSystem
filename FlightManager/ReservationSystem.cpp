@@ -158,18 +158,18 @@ void ReservationSystem::showFlights() {		// 등록된 항공편 목록 출력
 		cout << endl;
 	}
 }
-void ReservationSystem::showSeatMap(int flightChoice, int seatClass) {	// 선택한 등급의 좌석 배치도 출력
+void ReservationSystem::showSeatMap(int flightIndex, int seatClass) {	// 선택한 등급의 좌석 배치도 출력
 	if (seatClass == 0) {
 		cout << "\n [Economy 좌석]";
-		seats[passenger->getSelectedSeatClass()]->printSeatMap(seatMap[flightChoice][0]);	// 선택한 좌석 등급의 객체에 접근 
+		seats[passenger->getSelectedSeatClass()]->printSeatMap(seatMap[flightIndex][0]);	// 선택한 좌석 등급의 객체에 접근 
 	}																							// -> 고객이 선택한 항공편의 좌석 등급의 배치도를 출력
 	else if (seatClass == 1) {
 		cout << "\n [Business 좌석]";														
-		seats[passenger->getSelectedSeatClass()]->printSeatMap(seatMap[flightChoice][1]);	// 위와 동일
+		seats[passenger->getSelectedSeatClass()]->printSeatMap(seatMap[flightIndex][1]);	// 위와 동일
 	}
 	else if (seatClass == 2) {
 		cout << "\n [FirstClass 좌석]";
-		seats[passenger->getSelectedSeatClass()]->printSeatMap(seatMap[flightChoice][2]);	// 위와 동일
+		seats[passenger->getSelectedSeatClass()]->printSeatMap(seatMap[flightIndex][2]);	// 위와 동일
 	}
 	else {
 		cout << "등급 번호는 1~3 중에서 입력해 주세요." << endl;
@@ -208,7 +208,7 @@ void ReservationSystem::reserve() {
 		}
 		reservationId = flights[passenger->getSelectedFlight()]->flightCode + "-A" + num;	// 항공편-A0001과 같은 형태로 예약 번호 저장
 
-		Reservation r;		// 구조체로 예약 정보 생성
+		Reservation r;		// 구조체로 예약 정보 저장
 		r.reservationId = reservationId;
 		r.passengerName = passenger->name;
 		r.passportNo = passenger->getPassportNo();

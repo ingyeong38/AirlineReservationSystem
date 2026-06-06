@@ -6,8 +6,8 @@ using namespace std;
 
 class Economy : public Seat{
 private:
-	int rowCount();
-	int colCount();
+	inline int rowCount();
+	inline int colCount();
 public:
 	Economy();
 	string getClassName() { return "Economy"; }

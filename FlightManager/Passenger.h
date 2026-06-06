@@ -14,16 +14,16 @@ private:
 	string selectedSeat;	// 선택한 좌석
 
 public:
-	Passenger(string name, int age, string passport);	// 생성자
+	Passenger(string name, int age, string passportNo);	// 생성자
 	string name;			// 승객 이름
 
 	void printInfo();		//  승객 정보 등록 확인용
 	void printTicket();		// E-Ticket에서 승객 정보 출력
 	const string& getPassportNo() const;	// 여권번호 반환
 
-	void setSelectedFlight(int flight);		// 항공편 선택
-	void setSelectedSeatClass(int seatClass);	// 좌석 등급 선택
-	void setSelectedSeat(string seatNum);	// 좌석 선택
+	void setSelectedFlight(int selectedFlight);		// 항공편 선택
+	void setSelectedSeatClass(int selectedSeatClass);	// 좌석 등급 선택
+	void setSelectedSeat(string selectedSeat);	// 좌석 선택
 
 	inline int getSelectedFlight() { return selectedFlight; }		// 선택한 항공편 반환
 	inline int getSelectedSeatClass() { return selectedSeatClass; }		// 선택한 좌석 등급 반환

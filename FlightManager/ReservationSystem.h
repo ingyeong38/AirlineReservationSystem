@@ -33,8 +33,8 @@ private:
 
 	void menu();			// 메인 메뉴 출력 및 기능 선택
 	void showFlights();		// 등록된 항공편 목록 출력
-	void showSeatMap(int flightId, int seatClass);	// 선택한 등급의 좌석 배치도 출력
-	bool selectSeat(string seatId);	// 좌석 번호 입력받아 배정 후 반환
+	void showSeatMap(int flightIndex, int seatClass);	// 선택한 등급의 좌석 배치도 출력
+	bool selectSeat(string seatNum);	// 좌석 번호 입력받아 배정 후 반환
 	void reserve();			// 결제 확인, 예약번호 생성, E-Ticket 발급
 	void findReservation();	// 예약번호로 기존 예약 정보 조회 및 출력
 

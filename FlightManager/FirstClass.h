@@ -6,8 +6,8 @@ using namespace std;
 
 class FirstClass : public Seat {
 private:
-	int rowCount();
-	int colCount();
+	inline int rowCount();
+	inline int colCount();
 public:
 	FirstClass();
 	string getClassName() { return "FirstClass"; }

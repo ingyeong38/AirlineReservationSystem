@@ -10,8 +10,7 @@ protected:
 	int basePrice;			// 기본요금(원)
 
 	virtual int calculateFare() = 0;		// 요금 계산
-	virtual void printFare() = 0;			// 항공편에 따른 요금 출력
-	virtual string getFlightClass() = 0;	// 비행기 정보 출력
+	
 
 public:
 	Flight(string flightCode, string departure, string arrival, int distance, int basePrice = 0);
@@ -20,6 +19,8 @@ public:
 	string departure;		// 출발지 공항 코드(ex: ICN)
 	string arrival;			// 도착지 공항 코드(ex: LAX)
 
+	virtual void printFare() = 0;			// 항공편에 따른 요금 출력
+	virtual string getFlightClass() = 0;	// 비행기 정보 출력
 	int showFareDetail(double multiplier); // 최종 계산 요금 출력
 	virtual bool hasSeatClass() { return true; }	// 전세기는 좌석 등급 없음
 	void printSummary();			// 항공편 목록 출력용

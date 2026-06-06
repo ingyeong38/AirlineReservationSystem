@@ -10,9 +10,9 @@ private:
 protected:
 	int calculateFare();
 	void printFare();
-	string getFlightClass();
 public:
 	CharterFlight(string flightCode, string departure, string arrival, int distance, int fixedPrice);
+	string getFlightClass();
 	bool hasSeatClass() { return false; }
 };
 #endif // !CHARTERFLIGHT_H

@@ -30,14 +30,14 @@ const string& Passenger::getPassportNo() const {		// 여권 번호 반환
 	return passPortNo;
 }
 
-void Passenger::setSelectedFlight(int flight) {	// 항공편 선택
-	this->selectedFlight = flight;
+void Passenger::setSelectedFlight(int selectedFlight) {	// 항공편 선택
+	this->selectedFlight = selectedFlight;
 }
 
 void Passenger::setSelectedSeatClass(int seatSeatClass) {	// 좌석 등급 선택
 	this->selectedSeatClass = seatSeatClass;
 }
 
-void Passenger::setSelectedSeat(string seatNum) {		// 좌석 선택
-	this->selectedSeat = seatNum;
+void Passenger::setSelectedSeat(string selectedSeat) {		// 좌석 선택
+	this->selectedSeat = selectedSeat;
 }
