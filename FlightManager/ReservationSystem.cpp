@@ -230,12 +230,13 @@ void ReservationSystem::reserve() {
 		Sleep(700);
 		cout << "\n ========= E-TICKET =========" << endl;		// 예약 정보 출력
 		cout << " 예약 번호: " << reservationId << endl;
-		passenger->printTicket();
-		flights[passenger->getSelectedFlight()]->printTicketInfo();
+		cout << " 승객명: " << r.passengerName << endl;
+		cout << " 여권번호: " << r.passportNo << endl;
+		flights[r.flightIndex]->printTicketInfo();
 		if (flights[passenger->getSelectedFlight()]->hasSeatClass()) {
-			cout << " 좌석: " << passenger->getSelectedSeat() << " (" << seats[passenger->getSelectedSeatClass()]->getClassName() << ")" << endl;
+			cout << " 좌석: " << r.seatNumber << "(" << seats[r.seatClass]->getClassName() << ")" << endl;
 		}
-		cout << " 결제 금액: " << finalPrice << "원" << endl;
+		cout << " 결제 금액: " << r.finalPrice << "원" << endl;
 		cout << " =============================\n" << endl;
 		system("pause");
 	}
@@ -258,7 +259,7 @@ void ReservationSystem::findReservation() {		// 예약번호로 기존 예약 정보 조회 �
 		cout << " 예약 번호: " << r.reservationId << endl;
 		cout << " 승객명: " << r.passengerName << endl;
 		flights[r.flightIndex]->printTicketInfo();
-		cout << " 좌석: " << r.seatNumber << endl;
+		cout << " 좌석: " << r.seatNumber << " (" << seats[r.seatClass]->getClassName() << ")" << endl;
 		cout << " 결제 금액: " << r.finalPrice << "원\n" << endl;
 		system("pause");
 	}
