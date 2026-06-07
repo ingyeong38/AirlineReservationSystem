@@ -7,7 +7,6 @@ using namespace std;
 class CharterFlight : public Flight {
 private:
 	int fixedPrice;		// 고정 요금(원)
-protected:
 	int calculateFare();
 	void printFare();
 public:

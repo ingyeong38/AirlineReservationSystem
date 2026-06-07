@@ -6,7 +6,7 @@
 using namespace std;
 
 class DomesticFlight : public Flight{
-protected:
+private:
 	int calculateFare();		// 요금 계산
 	void printFare();			// 항공편에 따른 요금 출력
 public:

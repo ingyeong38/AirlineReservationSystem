@@ -9,7 +9,6 @@ class InternationalFlight : public Flight{
 private:
 	int fuelSurcharge;	// 유류할증료(원)
 	int airportTax;		// 공항세
-protected:
 	int calculateFare();		// 요금 계산
 	void printFare();			// 항공편에 따른 요금 출력
 public:
