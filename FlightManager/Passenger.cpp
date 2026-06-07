@@ -26,7 +26,7 @@ void Passenger::printTicket() {			// E-Ticket에서 승객 정보 출력
 	cout << " 여권번호: " << passPortNo << endl;
 }
 
-const string& Passenger::getPassportNo() const {		// 여권 번호 반환
+string Passenger::getPassportNo() {		// 여권 번호 반환
 	return passPortNo;
 }
 

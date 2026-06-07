@@ -13,7 +13,7 @@ protected:
 	virtual void printFare() = 0;			// 항공편에 따른 요금 출력
 public:
 	Flight(string flightCode, string departure, string arrival, int distance, int basePrice = 0);
-	virtual ~Flight() {}
+	virtual ~Flight() {}	// 가상 소멸자
 	string flightCode;		// 항공편 편명(ex: KE0987)
 	string departure;		// 출발지 공항 코드(ex: ICN)
 	string arrival;			// 도착지 공항 코드(ex: LAX)

@@ -19,7 +19,7 @@ public:
 
 	void printInfo();		//  승객 정보 등록 확인용
 	void printTicket();		// E-Ticket에서 승객 정보 출력
-	const string& getPassportNo() const;	// 여권번호 반환
+	string getPassportNo();	// 여권번호 반환
 
 	void setSelectedFlight(int selectedFlight);		// 항공편 선택
 	void setSelectedSeatClass(int selectedSeatClass);	// 좌석 등급 선택
@@ -27,6 +27,6 @@ public:
 
 	inline int getSelectedFlight() { return selectedFlight; }		// 선택한 항공편 반환
 	inline int getSelectedSeatClass() { return selectedSeatClass; }		// 선택한 좌석 등급 반환
-	const string& getSelectedSeat() const { return selectedSeat; }		// 선택한 좌석 반환
+	string getSelectedSeat() { return selectedSeat; }		// 선택한 좌석 반환
 };
 #endif // !PASSENGER_H
