@@ -26,8 +26,8 @@ void Seat::printSeatMap(bool seatStatus[]) {	// 좌석 배치도 출력
 	for (int i = 0; i < rowCount(); i++) {	// rowCount()로 좌석 등급의 행 크기 반환
 		cout << i + 1 << "      ";
 		for (int j = 0; j < colCount(); j++) {	// colCount()로 좌석 등급의 열 크기 반환
-			int index = i * colCount() + j;		// 2차원 배열 -> 1차원 배열로 접근
-			if (seatStatus[index])		// 0행 0열부터 마지막 행 마지막 열까지 접근하면서 이미 예약된 경우 [x]로 출력
+			int index = i * colCount() + j;		// 0행 0열부터 마지막 행 마지막 열까지 접근
+			if (seatStatus[index])		// 좌석(index)이 이미 예약된 경우 [x]로 출력
 				cout << "[x]     ";
 			else
 				cout << "[O]     ";
