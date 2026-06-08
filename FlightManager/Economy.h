@@ -6,10 +6,11 @@ using namespace std;
 
 class Economy : public Seat{
 private:
-	inline int rowCount();
-	inline int colCount();
+	inline int rowCount();	// 행 크기
+	inline int colCount();	// 열 크기
+
 public:
 	Economy();
-	string getClassName() { return "Economy"; }
+	inline string getClassName() { return "Economy"; }
 };
 #endif // !ECONOMY_H

@@ -11,6 +11,7 @@ protected:
 
 	virtual int calculateFare() = 0;		// 요금 계산
 	virtual void printFare() = 0;			// 항공편에 따른 요금 출력
+
 public:
 	Flight(string flightCode, string departure, string arrival, int distance, int basePrice = 0);
 	virtual ~Flight() {}	// 가상 소멸자

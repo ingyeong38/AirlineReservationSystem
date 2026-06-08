@@ -8,9 +8,11 @@ class Seat {
 private:
 	double priceMultiplier;	// 가격 배수(1.0/2.5/4.0)
 	bool isValidSeat(string seatNum);	// 좌석 범위 검증
+	
 protected:
 	virtual int rowCount() = 0;	// 각 클래스의 최대 행 크기 반환
 	virtual int colCount() = 0;	// 각 클래스의 최대 열 크기 반환
+
 public:
 	Seat(double priceMultiplier);
 	virtual ~Seat() {}

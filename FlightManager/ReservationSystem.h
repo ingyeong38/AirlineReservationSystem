@@ -11,7 +11,7 @@
 #include "FirstClass.h"
 using namespace std;
 
-struct Reservation {
+struct Reservation {		// 예약 정보를 저장할 구조체
 	string reservationId;
 	string passengerName;
 	string passportNo;

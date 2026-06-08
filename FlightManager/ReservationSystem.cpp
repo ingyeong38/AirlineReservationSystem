@@ -22,7 +22,7 @@ ReservationSystem::ReservationSystem()		// 초기 항공편 목록(10개) 저장
 {
 	flights[0] = new DomesticFlight("KE1201", "Seoul(GMP)", "Jeju(CJU)", 450, 15000);
 	flights[1] = new DomesticFlight("OZ8901", "Seoul(GMP)", "Busan(PUS)", 330, 16000);
-	flights[2] = new DomesticFlight("7C101", "Busan(PUS)", "Jeju(CJU)", 300, 15000);
+	flights[2] = new DomesticFlight("7C101", "Busan(PUS)", "Jeju(CJU)", 300, 18000);
 	flights[3] = new DomesticFlight("TW901", "Daegu(TAE)", "Jeju(CJU)", 320, 14000);
 	flights[4] = new InternationalFlight("KE701", "Seoul(ICN)", "Tokyo(NRT)", 1200, 150000, 28000, 17000);
 	flights[5] = new InternationalFlight("OZ361", "Seoul(ICN)", "Shanghai(PVG)", 900, 120000, 25000, 15000);
@@ -102,13 +102,14 @@ void ReservationSystem::menu() {	// 메인 메뉴 출력 및 기능 선택
 			cout << "예약하실 항공편 번호(1~10)를 선택하세요(0: 메뉴로 돌아가기): ";
 			cin >> flightChoice;
 			if (flightChoice == 0)	break;	// 항공편 목록만 보고 메인 메뉴로 복귀
-			else if (flightChoice > 10 || flightChoice < 1) {	// 0 ~ 10 이외의 다른 값을 입력한 경우 
+			else if (flightChoice > 10 || flightChoice < 0) {	// 0 ~ 10 이외의 다른 값을 입력한 경우 
 				cout << "항공편 범위 내에서 선택해 주세요." << endl;
-				Sleep(1200);
+				Sleep(1000);
 				continue;
 			}
 			passenger->setSelectedFlight(flightChoice - 1);		// 승객이 선택한 항공편 번호를 저장
 			system("cls");
+
 			flights[passenger->getSelectedFlight()]->printDetail();		// 선택한 항공편의 상세 정보 출력
 			Sleep(700);
 
@@ -265,6 +266,6 @@ void ReservationSystem::findReservation() {		// 예약번호로 기존 예약 정보 조회 �
 	}
 	else {
 		cout << " 해당 예약번호를 찾을 수 없습니다.";
-		Sleep(1000);
+		Sleep(900);
 	}
 }
