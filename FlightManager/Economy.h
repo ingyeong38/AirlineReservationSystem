@@ -6,8 +6,8 @@ using namespace std;
 
 class Economy : public Seat{
 private:
-	inline int rowCount();	// 青 农扁
-	inline int colCount();	// 凯 农扁
+	int rowCount();	// 青 农扁
+	int colCount();	// 凯 农扁
 
 public:
 	Economy();
