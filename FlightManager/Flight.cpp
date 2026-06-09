@@ -28,7 +28,7 @@ int Flight::showFareDetail(double multiplier) {		// 요금 상세 출력
 }
 
 void Flight::printSummary() {		// 항공편 목록에서 출력할 내용
-	cout << "\t" << flightCode << "\t|  " << departure << "  →  " << arrival << "\t| " << getFlightClass() <<endl; // endl 앞에 국내선/국제선/전세기 출력 변수 추가
+	cout << "\t" << flightCode << "\t|  " << departure << "  →  " << arrival << "\t| " << getFlightClass() <<endl;
 }
 
 void Flight::printTicketInfo() {	// E-Ticket에서 출력할 내용
